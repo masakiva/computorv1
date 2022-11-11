@@ -6,7 +6,7 @@
 #    By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 10:16:21 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/11 10:43:42 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/11/11 16:31:28 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,13 +34,17 @@ OBJS_PATH	+= ./objects/
 SRCS		+= main.c
 SRCS		+= error.c
 SRCS		+= arg_options.c
+SRCS		+= parsing.c
+SRCS		+= atoi_derivates.c
 
 vpath %.c $(SRCS_PATH)
 
 #-----------------------------------------------#
 ################## HEADERS ######################
 #-----------------------------------------------#
+HDRS		+= main.h
 HDRS		+= error.h
+HDRS		+= parsing.h
 
 vpath %.h $(HDRS_PATH)
 
