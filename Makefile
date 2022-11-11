@@ -6,7 +6,7 @@
 #    By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 10:16:21 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/11 10:18:07 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/11/11 10:43:42 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ OBJS_PATH	+= ./objects/
 #-----------------------------------------------#
 SRCS		+= main.c
 SRCS		+= error.c
+SRCS		+= arg_options.c
 
 vpath %.c $(SRCS_PATH)
 
@@ -40,7 +41,6 @@ vpath %.c $(SRCS_PATH)
 ################## HEADERS ######################
 #-----------------------------------------------#
 HDRS		+= error.h
-HDRS		+= parse.h
 
 vpath %.h $(HDRS_PATH)
 
