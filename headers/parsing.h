@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 18:07:08 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:37:40 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ enum	e_state
 typedef struct	s_state_machine
 {
 	enum e_state	state;
-	t_eq_terms*		eq_terms;
+	t_equation*		equation;
 	t_bool			right_side;
 	t_bool			negative;
 	t_byte			pad[2];
@@ -43,7 +43,7 @@ typedef char*	(*t_parse)(t_state_machine *, char *);
 
 t_byte	retrieve_options(int argc, char **argv, char *op_chars);
 
-void	parse_equation(char* eq_str, t_eq_terms* eq_terms);
+void	parse_equation(char* eq_str, t_equation* equation);
 
 // state machine states
 char*	character(t_state_machine* machine, char* eq_str);

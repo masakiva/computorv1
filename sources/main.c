@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 19:17:31 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:38:57 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 int		main(int argc, char** argv)
 {
 	t_byte		options;
-	t_eq_terms	eq_terms;
+	t_equation	equation;
 
 	if (argc != 1)
 	{
-		ft_bzero(&eq_terms, sizeof(t_eq_terms));
+		ft_bzero(&equation, sizeof(t_equation));
 		options = retrieve_options(argc, argv, ARG_OPTIONS);
 		if (options & HELP_OPTION)
 		{
@@ -32,9 +32,9 @@ int		main(int argc, char** argv)
 			return (EXIT_SUCCESS);
 		}
 
-		parse_equation(argv[1], &eq_terms);
+		parse_equation(argv[1], &equation);
 
-		solve_equation(&eq_terms);
+		solve_equation(&equation);
 	}
 	else
 		if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != SUCCESS)

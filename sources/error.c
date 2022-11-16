@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:28 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 17:46:07 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:31:50 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		error_exit(enum e_errcode errcode)
 		"Cannot write on standard output",
 		"--- separator ---",
 		"Unknown syntax",
-		"Third or upper degree equation resolution is not supported",
 	};
 
 	ft_putstr_fd("[computorv1] error: ", STDERR_FILENO);
