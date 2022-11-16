@@ -6,7 +6,7 @@
 #    By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 10:16:21 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/16 16:45:24 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/11/16 18:56:06 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS		+= main.c
 SRCS		+= error.c
 SRCS		+= arg_options.c
 SRCS		+= parsing.c
+SRCS		+= solving.c
 
 vpath %.c $(SRCS_PATH)
 

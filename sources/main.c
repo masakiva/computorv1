@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 18:00:38 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:17:31 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <stdio.h>
 int		main(int argc, char** argv)
 {
 	t_byte		options;
@@ -31,7 +32,9 @@ int		main(int argc, char** argv)
 			return (EXIT_SUCCESS);
 		}
 
-		parse_equation("5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^2", &eq_terms);
+		parse_equation(argv[1], &eq_terms);
+
+		solve_equation(&eq_terms);
 	}
 	else
 		if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != SUCCESS)

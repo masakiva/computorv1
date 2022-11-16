@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 18:02:02 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:07:08 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 enum	e_state
 {
 	SPACE,
-	DIGIT,
+	EQUATION_TERM,
 	PLUS_MINUS,
 	EQUAL_SIGN,
 	END,
@@ -47,7 +47,7 @@ void	parse_equation(char* eq_str, t_eq_terms* eq_terms);
 
 // state machine states
 char*	character(t_state_machine* machine, char* eq_str);
-char*	digit(t_state_machine* machine, char* eq_str);
+char*	equation_term(t_state_machine* machine, char* eq_str);
 char*	plus_minus(t_state_machine* machine, char* eq_str);
 char*	equal_sign(t_state_machine* machine, char* eq_str);
 

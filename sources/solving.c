@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   solving.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:04:53 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 18:55:52 by mvidal-a         ###   ########.fr       */
+/*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
+/*   Updated: 2022/11/16 19:15:59 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "main.h"
+#include <stdio.h>
 
-# include "libft.h"
-
-typedef struct	s_equation_terms
+void	solve_equation(t_eq_terms* eq_terms)
 {
-	double	left[3];
-	double	right[3];
+	int		exp;
 
-}				t_eq_terms;
-
-void	solve_equation(t_eq_terms* eq_terms);
-
-#endif // MAIN_H
+	exp = 0;
+	printf("Reduced form: ");
+	while (exp < 3)
+	{
+		eq_terms->left[exp] -= eq_terms->right[exp];
+		if (eq_terms->left[exp] < 0)
+			printf("- %f * X^%d ", eq_terms->left[exp] * -1, exp);
+		else
+			printf("+ %f * X^%d ", eq_terms->left[exp], exp);
+		exp++;
+	}
+	printf("= 0\n");
+}

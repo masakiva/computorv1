@@ -6,20 +6,19 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 18:04:02 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:04:23 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include "error.h"
-#include <stdio.h>
 
 char*	space(t_state_machine* machine, char* eq_str)
 {
 	while (ft_isspace(*eq_str))
 		eq_str++;
 	if (ft_isdigit(*eq_str))
-		machine->state = DIGIT;
+		machine->state = EQUATION_TERM;
 	else if (*eq_str == '+' || *eq_str == '-')
 		machine->state = PLUS_MINUS;
 	else if (*eq_str == '=')
@@ -31,7 +30,7 @@ char*	space(t_state_machine* machine, char* eq_str)
 	return (eq_str);
 }
 
-char*	digit(t_state_machine* machine, char* eq_str)
+char*	equation_term(t_state_machine* machine, char* eq_str)
 {
 	double	parameter;
 	int		exponent;
@@ -88,7 +87,7 @@ void	parse_equation(char* eq_str, t_eq_terms* eq_terms)
 {
 	static t_parse	process[NB_STATES - 1] = {
 		space,
-		digit,
+		equation_term,
 		plus_minus,
 		equal_sign
 	};
@@ -99,17 +98,5 @@ void	parse_equation(char* eq_str, t_eq_terms* eq_terms)
 	while (machine.state != END)
 	{
 		eq_str = process[machine.state](&machine, eq_str);
-	}
-	int exp = 0;
-	while (exp < 3)
-	{
-		printf("left X^%d param = %f\n", exp, machine.eq_terms->left[exp]);
-		exp++;
-	}
-	exp = 0;
-	while (exp < 3)
-	{
-		printf("right X^%d param = %f\n", exp, machine.eq_terms->right[exp]);
-		exp++;
 	}
 }
