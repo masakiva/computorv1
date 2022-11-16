@@ -6,7 +6,7 @@
 /*   By: mvidal-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:29:06 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 16:43:27 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:44:31 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int				ft_strcmp(const char *s1, const char *s2);
 int				ft_isnumber(char *str);
 long			ft_atol(char *str);
 int				ft_isint(char* str);
+int8_t			ft_atoi_sign(char *str, int *nb);
+t_bool			ft_atof(char *str, double *nb_f);
 
 char			*strjoin_free(char *s1, char const *s2);
 

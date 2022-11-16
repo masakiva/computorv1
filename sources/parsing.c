@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/11 16:37:48 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:46:11 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ char*	digit(t_state_machine* machine, char* eq_str)
 	double	parameter;
 	int8_t	ret;
 
-	ret = atof_double(eq_str, &parameter);
+	ret = ft_atof(eq_str, &parameter);
 	printf("%f\n", parameter);
-	eq_str = skip_double(eq_str);
+	//eq_str = skip_double(eq_str);
 	machine->state = SPACE;
 	return (eq_str);
 }

@@ -6,7 +6,7 @@
 #    By: mvidal-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/23 13:17:34 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/10 15:24:19 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/11/16 16:37:48 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,8 @@ SRCS_CUSTOM	+= ft_set_index.c
 SRCS_CUSTOM	+= skip_int.c
 SRCS_CUSTOM	+= ft_atol.c
 SRCS_CUSTOM	+= ft_isint.c
+SRCS_CUSTOM	+= ft_atoi_sign.c
+SRCS_CUSTOM	+= ft_atof.c
 
 VPATH		= part_1:part_2:bonus:custom
 

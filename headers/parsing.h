@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/11 16:35:51 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:45:32 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,5 @@ char*	digit(t_state_machine* machine, char* eq_str);
 char*	unknown(t_state_machine* machine, char* eq_str);
 char*	plus_minus(t_state_machine* machine, char* eq_str);
 char*	equal_sign(t_state_machine* machine, char* eq_str);
-
-// utils
-int8_t			atof_double(char *str, double *nb_f);
 
 #endif // PARSING_H
