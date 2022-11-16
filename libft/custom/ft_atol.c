@@ -6,19 +6,19 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:34:03 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/08 16:34:09 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:16:27 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(char *str)
+long	ft_atol(const char* str)
 {
 	long		nb;
 	int8_t		sign;
 
 	sign = 1;
-	str = skip_spaces(str);
+	str = skip_spaces((char*)str);
 	if (*str == '-')
 	{
 		sign = -1;
