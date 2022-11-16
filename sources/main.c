@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/11 16:15:58 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:45:56 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int argc, char** argv)
 		options = retrieve_options(argc, argv, ARG_OPTIONS);
 		if (options & HELP_OPTION)
 		{
-			if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != WRITE_SUCCESS)
+			if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != SUCCESS)
 				error_exit(WRITE_ERR);
 			return (EXIT_SUCCESS);
 		}
@@ -34,7 +34,7 @@ int		main(int argc, char** argv)
 		parse_equation("5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0", &eq_terms);
 	}
 	else
-		if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != WRITE_SUCCESS)
+		if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != SUCCESS)
 			error_exit(WRITE_ERR);
 
 	return (EXIT_SUCCESS);
