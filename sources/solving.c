@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 20:02:40 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:32:20 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,38 @@ void	print_terms(t_equation* equation)
 	}
 }
 
+void	sort_terms(t_list* terms_list)
+{
+	t_list*	cur_link;
+	t_term*	cur_term;
+	t_list*	cur_link_2;
+	t_term*	cur_term_2;
+	int		swap_exp;
+	double	swap_param;
+
+	cur_link = terms_list;
+	while (cur_link != NULL)
+	{
+		cur_term = cur_link->content;
+		cur_link_2 = cur_link;
+		while (cur_link_2 != NULL)
+		{
+			cur_term_2 = cur_link_2->content;
+			if (cur_term->exponent > cur_term_2->exponent)
+			{
+				swap_exp = cur_term->exponent;
+				cur_term->exponent = cur_term_2->exponent;
+				cur_term_2->exponent = swap_exp;
+				swap_param = cur_term->parameter;
+				cur_term->parameter = cur_term_2->parameter;
+				cur_term_2->parameter = swap_param;
+			}
+			cur_link_2 = cur_link_2->next;
+		}
+		cur_link = cur_link->next;
+	}
+}
+
 void	reduce_eq_form(t_equation* equation)
 {
 	t_list*	cur_link_r;
@@ -53,7 +85,7 @@ void	reduce_eq_form(t_equation* equation)
 	{
 		cur_term_r = (t_term*)cur_link_r->content;
 		cur_link_l = equation->left_terms;
-		while (cur_link_l != NULL) // search a parameter with the same exponent on l side
+		while (cur_link_l != NULL) // search for a parameter with the same exponent on left side
 		{
 			cur_term_l = (t_term*)cur_link_l->content;
 			if (cur_term_l->exponent == cur_term_r->exponent) // found
@@ -79,6 +111,7 @@ void	reduce_eq_form(t_equation* equation)
 		ft_lstdelone(cur_link_r, free_content);
 		cur_link_r = equation->right_terms;
 	}
+	sort_terms(equation->left_terms);
 }
 
 void	solve_equation(t_equation* equation)
