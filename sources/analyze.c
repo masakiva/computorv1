@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solving.c                                          :+:      :+:    :+:   */
+/*   analyze.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/18 13:33:33 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:44:20 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,6 @@
 void	free_content(void* content)
 {
 	free(content);
-}
-
-void	print_reduced_form(t_equation* equation)
-{
-	t_list*	cur_link;
-	t_term*	cur_term;
-
-	if (equation->left_terms == NULL)
-		return ;
-	cur_link = equation->left_terms;
-	cur_term = (t_term*)cur_link->content;
-	printf("Reduced form: %g * X^%d", cur_term->parameter, cur_term->exponent);
-	cur_link = cur_link->next;
-	while (cur_link != NULL)
-	{
-		cur_term = (t_term*)cur_link->content;
-		if (cur_term->parameter < 0)
-			printf(" - %g * X^%d", cur_term->parameter * -1,
-					cur_term->exponent);
-		else
-			printf(" + %g * X^%d", cur_term->parameter, cur_term->exponent);
-		cur_link = cur_link->next;
-	}
-	printf(" = 0\n");
 }
 
 void	merge_right_to_left(t_equation* equation)
@@ -184,8 +160,46 @@ void	reduce_eq_form(t_equation* equation)
 	sort_terms(equation->left_terms);
 }
 
-void	solve_equation(t_equation* equation)
+void	print_reduced_form(t_equation* equation)
+{
+	t_list*	cur_link;
+	t_term*	cur_term;
+
+	if (equation->left_terms == NULL)
+		return ;
+	cur_link = equation->left_terms;
+	cur_term = (t_term*)cur_link->content;
+	printf("Reduced form: %g * X^%d", cur_term->parameter, cur_term->exponent);
+	cur_link = cur_link->next;
+	while (cur_link != NULL)
+	{
+		cur_term = (t_term*)cur_link->content;
+		if (cur_term->parameter < 0)
+			printf(" - %g * X^%d", cur_term->parameter * -1,
+					cur_term->exponent);
+		else
+			printf(" + %g * X^%d", cur_term->parameter, cur_term->exponent);
+		cur_link = cur_link->next;
+	}
+	printf(" = 0\n");
+}
+
+int		print_and_get_degree(t_equation* equation)
+{
+	t_list*	last_link;
+	t_term*	highest_term;
+	
+	last_link = ft_lstlast(equation->left_terms);
+	highest_term = last_link->content;
+	printf("Polynomial degree: %d\n", highest_term->exponent);
+	return (highest_term->exponent);
+}
+
+int		analyze_equation(t_equation* equation)
 {
 	reduce_eq_form(equation);
 	print_reduced_form(equation);
+	if (print_and_get_degree(equation) > 2)
+		return (FALSE);
+	return (TRUE);
 }

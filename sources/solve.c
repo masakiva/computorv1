@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:04:53 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/18 14:44:28 by mvidal-a         ###   ########.fr       */
+/*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
+/*   Updated: 2022/11/18 14:40:24 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "main.h"
 
-# include "libft.h"
-
-typedef struct	s_equation
+void	solve_equation(t_equation* equation)
 {
-	t_list*	left_terms;
-	t_list*	right_terms;
-
-}				t_equation;
-
-typedef struct	s_term
-{
-	double	parameter;
-	int		exponent;
-}				t_term;
-
-int		analyze_equation(t_equation* equation);
-void	solve_equation(t_equation* equation);
-
-#endif // MAIN_H
+	(void)equation;
+}

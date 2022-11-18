@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 19:38:57 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:45:09 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(int argc, char** argv)
 	t_byte		options;
 	t_equation	equation;
 
-	if (argc != 1)
+	if (argc > 1)
 	{
 		ft_bzero(&equation, sizeof(t_equation));
 		options = retrieve_options(argc, argv, ARG_OPTIONS);
@@ -33,7 +33,12 @@ int		main(int argc, char** argv)
 		}
 
 		parse_equation(argv[1], &equation);
-
+		if (analyze_equation(&equation) == FALSE)
+		{
+			printf("The polynomial degree is strictly greater than 2, "\
+					"I can't solve.\n");
+			return (EXIT_SUCCESS);
+		}
 		solve_equation(&equation);
 	}
 	else
