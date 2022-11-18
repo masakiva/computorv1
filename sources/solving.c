@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/17 16:26:44 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:33:33 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,28 @@ void	free_content(void* content)
 	free(content);
 }
 
-void	print_terms(t_equation* equation)
+void	print_reduced_form(t_equation* equation)
 {
 	t_list*	cur_link;
 	t_term*	cur_term;
 
+	if (equation->left_terms == NULL)
+		return ;
 	cur_link = equation->left_terms;
+	cur_term = (t_term*)cur_link->content;
+	printf("Reduced form: %g * X^%d", cur_term->parameter, cur_term->exponent);
+	cur_link = cur_link->next;
 	while (cur_link != NULL)
 	{
 		cur_term = (t_term*)cur_link->content;
-		printf("left %f * X^%d\n", cur_term->parameter, cur_term->exponent);
+		if (cur_term->parameter < 0)
+			printf(" - %g * X^%d", cur_term->parameter * -1,
+					cur_term->exponent);
+		else
+			printf(" + %g * X^%d", cur_term->parameter, cur_term->exponent);
 		cur_link = cur_link->next;
 	}
-	cur_link = equation->right_terms;
-	while (cur_link != NULL)
-	{
-		cur_term = (t_term*)cur_link->content;
-		printf("right %f * X^%d\n", cur_term->parameter, cur_term->exponent);
-		cur_link = cur_link->next;
-	}
+	printf(" = 0\n");
 }
 
 void	merge_right_to_left(t_equation* equation)
@@ -111,16 +114,32 @@ void	merge_left_terms(t_list* terms_list)
 	}
 }
 
-void	remove_null_terms(t_list* terms_list)
+void	lstremoveone(t_list* link, t_list* prev_link, t_list** lst,
+		void (*del)(void*))
+{
+	if (*lst == link)
+		*lst = link->next;
+	else
+		prev_link->next = link->next;
+	ft_lstdelone(link, del);
+}
+
+void	remove_null_terms(t_list** terms_list)
 {
 	t_list*	cur_link;
 	t_term*	cur_term;
-	//t_list*	cur_link_prev;
+	t_list*	cur_link_prev;
 
-	cur_link = terms_list;
+	cur_link = *terms_list;
+	cur_link_prev = NULL;
 	while (cur_link != NULL)
 	{
 		cur_term = cur_link->content;
+		if (cur_term->parameter == 0.0)
+		{
+			lstremoveone(cur_link, cur_link_prev, terms_list, free_content);
+		}
+		cur_link_prev = cur_link;
 		cur_link = cur_link->next;
 	}
 }
@@ -161,13 +180,12 @@ void	reduce_eq_form(t_equation* equation)
 {
 	merge_right_to_left(equation);
 	merge_left_terms(equation->left_terms);
-	//remove_null_terms(equation->left_terms);
+	remove_null_terms(&equation->left_terms);
 	sort_terms(equation->left_terms);
 }
 
 void	solve_equation(t_equation* equation)
 {
 	reduce_eq_form(equation);
-
-	print_terms(equation);
+	print_reduced_form(equation);
 }
