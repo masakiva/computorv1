@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/18 14:44:20 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:22:14 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,11 +195,29 @@ int		print_and_get_degree(t_equation* equation)
 	return (highest_term->exponent);
 }
 
+int		get_lowest_exponent(t_equation* equation)
+{
+	t_term*	lowest_term;
+
+	lowest_term = equation->left_terms->content;
+	return (lowest_term->exponent);
+}
+
 int		analyze_equation(t_equation* equation)
 {
 	reduce_eq_form(equation);
 	print_reduced_form(equation);
-	if (print_and_get_degree(equation) > 2)
+	if (get_lowest_exponent(equation) < 0)
+	{
+		printf("This is not a polynomial since there is a negative power of "\
+				"X: I can't solve.\n");
 		return (FALSE);
+	}
+	if (print_and_get_degree(equation) > 2)
+	{
+		printf("The polynomial degree is strictly greater than 2, "\
+				"I can't solve.\n");
+		return (FALSE);
+	}
 	return (TRUE);
 }
