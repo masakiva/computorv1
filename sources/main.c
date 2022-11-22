@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/19 16:40:14 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:54:24 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <stdio.h>
 int		main(int argc, char** argv)
 {
 	t_byte		options;

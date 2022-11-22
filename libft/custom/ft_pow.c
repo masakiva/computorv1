@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:04:53 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 10:54:09 by mvidal-a         ###   ########.fr       */
+/*   Created: 2022/11/22 11:38:18 by mvidal-a          #+#    #+#             */
+/*   Updated: 2022/11/22 11:45:47 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
 
-# include "libft.h"
-
-typedef struct	s_equation
+double	ft_pow(double nb, int power)
 {
-	t_list*	left_terms;
-	t_list*	right_terms;
-	double	a;
-	double	b;
-	double	c;
-	double	discriminant;
-	int		degree;
-	t_byte	pad[4];
-}				t_equation;
-
-typedef struct	s_term
-{
-	double	parameter;
-	int		exponent;
-}				t_term;
-
-int		analyze_equation(t_equation* equation);
-void	solve_equation(t_equation* equation);
-
-#endif // MAIN_H
+	if (power > 0)
+		return (nb * ft_pow(nb, power - 1));
+	else if (power == 0)
+		return (1);
+	else
+		return (0);
+}

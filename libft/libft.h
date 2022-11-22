@@ -6,7 +6,7 @@
 /*   By: mvidal-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:29:06 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 17:15:53 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:45:58 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,8 @@ void			sort_str_array(char **array);
 int				*push_int_to_array(int *array, size_t array_size, int nb);
 
 int				ft_set_index(char c, char *set);
+
+double			ft_pow(double nb, int power);
+int				ft_sqrt(int nb);
 
 #endif

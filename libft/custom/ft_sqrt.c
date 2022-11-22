@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:04:53 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 10:54:09 by mvidal-a         ###   ########.fr       */
+/*   Created: 2022/11/22 11:36:12 by mvidal-a          #+#    #+#             */
+/*   Updated: 2022/11/22 11:36:31 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
-
-# include "libft.h"
-
-typedef struct	s_equation
+int	ft_sqrt(int nb)
 {
-	t_list*	left_terms;
-	t_list*	right_terms;
-	double	a;
-	double	b;
-	double	c;
-	double	discriminant;
-	int		degree;
-	t_byte	pad[4];
-}				t_equation;
+	int i;
 
-typedef struct	s_term
-{
-	double	parameter;
-	int		exponent;
-}				t_term;
-
-int		analyze_equation(t_equation* equation);
-void	solve_equation(t_equation* equation);
-
-#endif // MAIN_H
+	i = 0;
+	while (i <= nb && i <= 46340)
+	{
+		if (nb == i * i)
+			return (i);
+		i++;
+	}
+	return (0);
+}

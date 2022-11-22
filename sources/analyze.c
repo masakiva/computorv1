@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/19 17:22:14 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/21 11:14:54 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ void	print_reduced_form(t_equation* equation)
 	while (cur_link != NULL)
 	{
 		cur_term = (t_term*)cur_link->content;
-		if (cur_term->parameter < 0)
+		if (cur_term->parameter < 0.0)
 			printf(" - %g * X^%d", cur_term->parameter * -1,
 					cur_term->exponent);
 		else
@@ -184,15 +184,15 @@ void	print_reduced_form(t_equation* equation)
 	printf(" = 0\n");
 }
 
-int		print_and_get_degree(t_equation* equation)
+void	get_and_print_degree(t_equation* equation)
 {
 	t_list*	last_link;
 	t_term*	highest_term;
 	
 	last_link = ft_lstlast(equation->left_terms);
 	highest_term = last_link->content;
-	printf("Polynomial degree: %d\n", highest_term->exponent);
-	return (highest_term->exponent);
+	equation->degree = highest_term->exponent;
+	printf("Polynomial degree: %d\n", equation->degree);
 }
 
 int		get_lowest_exponent(t_equation* equation)
@@ -209,11 +209,13 @@ int		analyze_equation(t_equation* equation)
 	print_reduced_form(equation);
 	if (get_lowest_exponent(equation) < 0)
 	{
-		printf("This is not a polynomial since there is a negative power of "\
-				"X: I can't solve.\n");
+		printf("This equation is not a polynomial since it contains a "\
+				"negative power of X.\n"\
+				"I can only solve polynomials of degree 2 or less.\n");
 		return (FALSE);
 	}
-	if (print_and_get_degree(equation) > 2)
+	get_and_print_degree(equation);
+	if (equation->degree > 2)
 	{
 		printf("The polynomial degree is strictly greater than 2, "\
 				"I can't solve.\n");
