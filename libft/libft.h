@@ -6,7 +6,7 @@
 /*   By: mvidal-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:29:06 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 18:16:03 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:21:05 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,6 @@ int				ft_set_index(char c, char *set);
 double			ft_pow(double nb, int power);
 int				ft_sqrt(int nb);
 long			ft_sqrt_long(long nb);
+double			ft_sqrt_double(double nb);
 
 #endif
