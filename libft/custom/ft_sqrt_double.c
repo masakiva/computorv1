@@ -21,7 +21,7 @@ double	ft_sqrt_double(double nb)
 	sqrt = (double)ft_sqrt_long((long)nb);
 	increment = 0.1;
 	i = 0;
-	while (i < 5)
+	while (i < 6)
 	{
 		while (sqrt * sqrt <= nb)
 			sqrt += increment;

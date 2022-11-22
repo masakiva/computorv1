@@ -65,15 +65,14 @@ void	get_discriminant(t_equation* equation)
 		- 4 * equation->a * equation->c;
 }
 
-#include <math.h>
 void	positive_discriminant(t_equation* equation)
 {
 	double	x1;
 	double	x2;
 
-	x1 = (-1 * equation->b - sqrt(equation->discriminant))
+	x1 = (-1 * equation->b - ft_sqrt_double(equation->discriminant))
 		/ (2 * equation->a);
-	x2 = (-1 * equation->b + sqrt(equation->discriminant))
+	x2 = (-1 * equation->b + ft_sqrt_double(equation->discriminant))
 		/ (2 * equation->a);
 	printf("Discriminant is strictly positive, the two solutions are:\n"\
 			"%g\n%g\n", x1, x2);

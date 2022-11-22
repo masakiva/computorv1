@@ -75,17 +75,16 @@ LIBFT_NAME	+= libft.a
 LDFLAGS		+= -L $(LIBFT_PATH)
 
 LDLIBS		+= -lft
-LDLIBS		+= -lm
 
 #-----------------------------------------------#
 ################### DEBUG #######################
 #-----------------------------------------------#
-#ifeq ($(d), 0)
-#	CFLAGS	+= -g3
+ifeq ($(d), 0)
+	CFLAGS	+= -g3
 	CFLAGS	+= -Wpadded
 	CFLAGS	+= -fsanitize=address,undefined
 	LDFLAGS	+= -fsanitize=address,undefined
-#endif
+endif
 
 
 #-----------------------------------------------#

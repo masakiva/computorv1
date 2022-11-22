@@ -15,9 +15,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <stdio.h>
-#include <math.h>
-#include <limits.h>
 int		main(int argc, char** argv)
 {
 	t_byte		options;
