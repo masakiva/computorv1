@@ -23,16 +23,6 @@ int		main(int argc, char** argv)
 	t_byte		options;
 	t_equation	equation;
 
-	long	i = 0;
-	while (i > 0)
-	{
-		if ((long)sqrt(i) != ft_sqrt_long(i))
-		{
-			printf("i = %ld\n", i);
-			return (EXIT_FAILURE);
-		}
-		i--;
-	}
 	if (argc > 1)
 	{
 		ft_bzero(&equation, sizeof(t_equation));

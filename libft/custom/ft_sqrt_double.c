@@ -14,5 +14,20 @@
 
 double	ft_sqrt_double(double nb)
 {
-	return (ft_sqrt_long(nb));
+	double	sqrt;
+	double	increment;
+	int		i;
+
+	sqrt = (double)ft_sqrt_long((long)nb);
+	increment = 0.1;
+	i = 0;
+	while (i < 5)
+	{
+		while (sqrt * sqrt <= nb)
+			sqrt += increment;
+		sqrt -= increment;
+		increment /= 10;
+		i++;
+	}
+	return (sqrt);
 }
