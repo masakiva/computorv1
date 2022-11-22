@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 19:37:40 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:45:16 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ enum	e_state
 
 typedef struct	s_state_machine
 {
-	enum e_state	state;
 	t_equation*		equation;
+	enum e_state	state;
 	t_bool			right_side;
 	t_bool			negative;
 	t_byte			pad[2];

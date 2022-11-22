@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 13:34:32 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:17:09 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,29 @@ double	get_coeff(int exponent, t_equation* equation)
 	return (0.0);
 }
 
+void	degree_0(t_equation* equation)
+{
+	equation->a = get_coeff(0, equation);
+
+	printf("The boolean solution is:\n");
+	if (equation->a == 0.0)
+		printf("true\n");
+	else
+		printf("false\n");
+}
+
+void	degree_1(t_equation* equation)
+{
+	double	x;
+
+	equation->a = get_coeff(1, equation);
+	equation->b = get_coeff(0, equation);
+
+	x = (-1 * equation->b) / equation->a;
+	printf("The solution is:\n"\
+			"%g\n", x);
+}
+
 void	get_coefficients(t_equation* equation)
 {
 	equation->a = get_coeff(2, equation);
@@ -48,21 +71,21 @@ void	positive_discriminant(t_equation* equation)
 	double	x1;
 	double	x2;
 
-	printf("Discriminant is strictly positive, the two solutions are:\n");
 	x1 = (-1 * equation->b - sqrt(equation->discriminant))
 		/ (2 * equation->a);
 	x2 = (-1 * equation->b + sqrt(equation->discriminant))
 		/ (2 * equation->a);
-	printf("%g\n%g\n", x1, x2);
+	printf("Discriminant is strictly positive, the two solutions are:\n"\
+			"%g\n%g\n", x1, x2);
 }
 
 void	null_discriminant(t_equation* equation)
 {
 	double	x;
 
-	printf("Discriminant is null, there is one solution:\n");
 	x = -1 * equation->b / (2 * equation->a);
-	printf("%g\n", x);
+	printf("Discriminant is null, there is one solution:\n"\
+			"%g\n", x);
 }
 
 void	negative_discriminant()
@@ -75,8 +98,10 @@ void	solve_equation(t_equation* equation)
 	switch (equation->degree)
 	{
 		case 0:
+			degree_0(equation);
 			break ;
 		case 1:
+			degree_1(equation);
 			break ;
 		case 2:
 			get_coefficients(equation);

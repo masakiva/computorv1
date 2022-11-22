@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:04:53 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 10:54:09 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:45:35 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_term
 {
 	double	parameter;
 	int		exponent;
+	t_byte	pad[4];
 }				t_term;
 
 int		analyze_equation(t_equation* equation);
