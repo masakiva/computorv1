@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 13:21:53 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:34:32 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,21 @@ void	positive_discriminant(t_equation* equation)
 		/ (2 * equation->a);
 	x2 = (-1 * equation->b + sqrt(equation->discriminant))
 		/ (2 * equation->a);
-	printf("%f\n%f\n", x1, x2);
+	printf("%g\n%g\n", x1, x2);
+}
+
+void	null_discriminant(t_equation* equation)
+{
+	double	x;
+
+	printf("Discriminant is null, there is one solution:\n");
+	x = -1 * equation->b / (2 * equation->a);
+	printf("%g\n", x);
+}
+
+void	negative_discriminant()
+{
+	printf("Discriminant is strictly negative, there is no solution.\n");
 }
 
 void	solve_equation(t_equation* equation)
@@ -70,9 +84,11 @@ void	solve_equation(t_equation* equation)
 			if (equation->discriminant > 0.0)
 				positive_discriminant(equation);
 			else if (equation->discriminant == 0.0)
-				;//null_discriminant();
+				null_discriminant(equation);
 			else
-				;//negative_discriminant();
+				negative_discriminant();
 			break ;
+		default:
+			printf("ERROR, this should never happen!\n");
 	}
 }
