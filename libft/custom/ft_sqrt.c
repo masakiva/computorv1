@@ -6,13 +6,13 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:36:12 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 11:36:31 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:06:18 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+double	ft_sqrt(double nb)
 {
-	int i;
+	double i;
 
 	i = 0;
 	while (i <= nb && i <= 46340)

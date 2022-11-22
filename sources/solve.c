@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 11:50:29 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:21:53 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,16 @@ void	get_discriminant(t_equation* equation)
 		- 4 * equation->a * equation->c;
 }
 
+#include <math.h>
 void	positive_discriminant(t_equation* equation)
 {
 	double	x1;
 	double	x2;
 
 	printf("Discriminant is strictly positive, the two solutions are:\n");
-	x1 = (-1 * equation->b - ft_sqrt(equation->discriminant))
+	x1 = (-1 * equation->b - sqrt(equation->discriminant))
 		/ (2 * equation->a);
-	x2 = (-1 * equation->b + ft_sqrt(equation->discriminant))
+	x2 = (-1 * equation->b + sqrt(equation->discriminant))
 		/ (2 * equation->a);
 	printf("%f\n%f\n", x1, x2);
 }
