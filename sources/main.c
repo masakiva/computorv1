@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/21 10:54:24 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:19:18 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,24 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <stdio.h>
+#include <math.h>
+#include <limits.h>
 int		main(int argc, char** argv)
 {
 	t_byte		options;
 	t_equation	equation;
 
+	long	i = 0;
+	while (i > 0)
+	{
+		if ((long)sqrt(i) != ft_sqrt_long(i))
+		{
+			printf("i = %ld\n", i);
+			return (EXIT_FAILURE);
+		}
+		i--;
+	}
 	if (argc > 1)
 	{
 		ft_bzero(&equation, sizeof(t_equation));

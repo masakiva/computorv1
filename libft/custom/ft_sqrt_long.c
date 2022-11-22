@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_sqrt_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/22 11:36:12 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 18:13:28 by mvidal-a         ###   ########.fr       */
+/*   Created: 2022/11/22 18:14:08 by mvidal-a          #+#    #+#             */
+/*   Updated: 2022/11/22 18:15:49 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+long	ft_sqrt_long(long nb)
 {
-    int	start;
-	int	end;
-    int	mid;
-	int	mid_sq;
-    int	sqrt;
+    long	start;
+	long	end;
+    long	mid;
+	long	mid_sq;
+    long	sqrt;
 
 	if (nb < 0)
 		return (-1);
 	start = 0;
-	if (nb <= 46340)
+	if (nb <= 3037000499)
 		end = nb;
 	else
-		end = 46340;
+		end = 3037000499;
     while (start <= end)
 	{
         mid = (start + end) / 2;

@@ -6,7 +6,7 @@
 #    By: mvidal-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/23 13:17:34 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/22 11:40:24 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/11/22 18:16:16 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,7 @@ SRCS_CUSTOM	+= ft_atof.c
 SRCS_CUSTOM	+= skip_float.c
 SRCS_CUSTOM	+= ft_pow.c
 SRCS_CUSTOM	+= ft_sqrt.c
+SRCS_CUSTOM	+= ft_sqrt_long.c
 
 VPATH		= part_1:part_2:bonus:custom
 
