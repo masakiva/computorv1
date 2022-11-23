@@ -1,11 +1,11 @@
 #!/bin/bash
 
-eq="5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+eq="5 + 4X - 9.3 X^2 = X^0"
 echo "$eq"
 ./computorv1 "$eq"
 echo
 
-eq="2 * X^2 + 1 * X^1 - 3 * X^0 = 0 * X^1"
+eq="2X^2 - 3+X  =0"
 echo "$eq"
 ./computorv1 "$eq"
 echo
@@ -45,7 +45,7 @@ echo "$eq"
 ./computorv1 "$eq"
 echo
 
-eq="42 * X^0 = 42 * X^0"
+eq="42 = 42"
 echo "$eq"
 ./computorv1 "$eq"
 echo
