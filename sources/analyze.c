@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 15:13:18 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:51:44 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,21 +171,46 @@ void	print_reduced_form(t_equation* equation)
 {
 	t_list*	cur_link;
 	t_term*	cur_term;
+	double	cur_param_absolute;
 
 	if (equation->left_terms == NULL)
 		return ;
 	cur_link = equation->left_terms;
-	cur_term = (t_term*)cur_link->content;
-	printf("Reduced form: %g * X^%d", cur_term->parameter, cur_term->exponent);
-	cur_link = cur_link->next;
+	printf("Reduced form: ");
 	while (cur_link != NULL)
 	{
 		cur_term = (t_term*)cur_link->content;
+		cur_param_absolute = cur_term->parameter;
 		if (cur_term->parameter < 0.0)
-			printf(" - %g * X^%d", cur_term->parameter * -1,
-					cur_term->exponent);
+			cur_param_absolute *= -1;
+		if (cur_link == equation->left_terms) // first term
+		{
+			if (cur_term->parameter < 0.0)
+				printf("-");
+		}
 		else
-			printf(" + %g * X^%d", cur_term->parameter, cur_term->exponent);
+		{
+			if (cur_term->parameter < 0.0)
+				printf(" - ");
+			else
+				printf(" + ");
+		}
+		if (cur_term->exponent == 0)
+			printf("%g", cur_param_absolute);
+		else if (cur_param_absolute == 1.0)
+		{
+			if (cur_term->exponent == 1)
+				printf("X");
+			else if (cur_term->exponent == 2)
+				printf("X^2");
+		}
+		else
+		{
+			if (cur_term->exponent == 1)
+				printf("%gX", cur_param_absolute);
+			else if (cur_term->exponent == 2)
+				printf("%gX^2", cur_param_absolute);
+		}
 		cur_link = cur_link->next;
 	}
 	printf(" = 0\n");

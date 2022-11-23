@@ -58,3 +58,8 @@ echo
 eq="-X = 1 - X^2"
 echo "$eq"
 ./computorv1 "$eq"
+echo
+
+eq="-X = 1 - X^2"
+echo "$eq"
+./computorv1 "$eq"
