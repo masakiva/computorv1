@@ -53,3 +53,8 @@ echo
 eq="-3 * X^2 + 1 * X^1 - 2 * X^0 = -2 * X^0 + 1 * X^1 - 3 * X^2"
 echo "$eq"
 ./computorv1 "$eq"
+echo
+
+eq="-X = 1 - X^2"
+echo "$eq"
+./computorv1 "$eq"

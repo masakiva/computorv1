@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 11:06:12 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:23:48 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,14 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 	eq_str = parse_exponent(term, eq_str);
 	eq_str = skip_spaces(eq_str);
 	if (*eq_str == '+' || *eq_str == '-' || *eq_str == '=' || *eq_str == '\0')
-		term->parameter = 1;
+	{
+		term->parameter = 1.0;
+		if (machine->negative == TRUE)
+		{
+			term->parameter *= -1;
+			machine->negative = FALSE;
+		}
+	}
 	else
 	{
 		if (*eq_str != '*')
