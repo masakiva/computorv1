@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 15:17:09 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:09:39 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,28 @@ void	null_discriminant(t_equation* equation)
 			"%g\n", x);
 }
 
-void	negative_discriminant()
+void	negative_discriminant(t_equation* equation)
 {
-	printf("Discriminant is strictly negative, there is no solution.\n");
+	double	x_real;
+	double	x1_complex;
+	double	x2_complex;
+
+	x_real = -1 * equation->b / (2 * equation->a);
+	x2_complex = ft_sqrt_double(-1 * equation->discriminant)
+		/ (2 * equation->a);
+	x1_complex = x2_complex * -1;
+	printf("Discriminant is strictly negative, there are two complex "\
+			"solutions:\n");
+	if (x2_complex < 0)
+	{
+		printf("%g - %gi\n", x_real, x2_complex * -1);
+		printf("%g + %gi\n", x_real, x1_complex);
+	}
+	else
+	{
+		printf("%g + %gi\n", x_real, x2_complex);
+		printf("%g - %gi\n", x_real, x1_complex * -1);
+	}
 }
 
 void	solve_equation(t_equation* equation)
@@ -110,7 +129,7 @@ void	solve_equation(t_equation* equation)
 			else if (equation->discriminant == 0.0)
 				null_discriminant(equation);
 			else
-				negative_discriminant();
+				negative_discriminant(equation);
 			break ;
 		default:
 			printf("ERROR, this should never happen!\n");
