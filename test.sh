@@ -60,6 +60,6 @@ echo "$eq"
 ./computorv1 "$eq"
 echo
 
-eq="-X = 1 - X^2"
+eq="X^2 * 4 + X * 1 + X^0 * -1 = X"
 echo "$eq"
 ./computorv1 "$eq"

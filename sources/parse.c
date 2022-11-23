@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 11:23:48 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:54:22 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 			error_exit(UNKNOWN_SYNTAX);
 		eq_str++;
 		eq_str = skip_spaces(eq_str);
-		parse_parameter(term, machine, eq_str);
+		eq_str = parse_parameter(term, machine, eq_str);
 	}
 
 	add_to_list(term, machine);
