@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/16 19:31:43 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:46:57 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include "libft.h"
 
-# define HELP_MSG	"[computorv1] usage:\n"
+# define HELP_MSG	"[computorv1] usage:\n"\
+	"Provide a polynomial equation as first argument of the program.\n"\
+	"For example:\n"\
+	"\t./computorv1 \"5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0\"\n"
 
 enum		e_errcode
 {
