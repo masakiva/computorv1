@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 11:51:44 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/01 21:51:39 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,29 +188,23 @@ void	print_reduced_form(t_equation* equation)
 			if (cur_term->parameter < 0.0)
 				printf("-");
 		}
+		else if (cur_term->parameter < 0.0)
+			printf(" - ");
 		else
-		{
-			if (cur_term->parameter < 0.0)
-				printf(" - ");
-			else
-				printf(" + ");
-		}
+			printf(" + ");
 		if (cur_term->exponent == 0)
 			printf("%g", cur_param_absolute);
 		else if (cur_param_absolute == 1.0)
 		{
 			if (cur_term->exponent == 1)
 				printf("X");
-			else if (cur_term->exponent == 2)
-				printf("X^2");
+			else
+				printf("X^%d", cur_term->exponent);
 		}
+		else if (cur_term->exponent == 1)
+			printf("%g X", cur_param_absolute);
 		else
-		{
-			if (cur_term->exponent == 1)
-				printf("%gX", cur_param_absolute);
-			else if (cur_term->exponent == 2)
-				printf("%gX^2", cur_param_absolute);
-		}
+			printf("%g X^%d", cur_param_absolute, cur_term->exponent);
 		cur_link = cur_link->next;
 	}
 	printf(" = 0\n");
