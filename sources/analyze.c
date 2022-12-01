@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/01 21:51:39 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/01 23:18:24 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,19 @@ void	remove_null_terms(t_list** terms_list)
 	while (cur_link != NULL)
 	{
 		cur_term = cur_link->content;
-		if (cur_term->parameter == 0.0
-				&& !(cur_link_prev == NULL && cur_link->next == NULL)) // leave one null term
+		if (cur_term->parameter == 0.0)
 		{
-			cur_link_next = cur_link->next;
-			lstremoveone(cur_link, cur_link_prev, terms_list, free_content);
-			cur_link = cur_link_next;
+			if (cur_link_prev == NULL && cur_link->next == NULL) // leave one null term
+			{
+				cur_term->exponent = 0;
+				break ;
+			}
+			else
+			{
+				cur_link_next = cur_link->next;
+				lstremoveone(cur_link, cur_link_prev, terms_list, free_content);
+				cur_link = cur_link_next;
+			}
 		}
 		else
 		{
