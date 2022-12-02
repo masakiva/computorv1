@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 20:19:30 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:56:40 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char*	space(t_state_machine* machine, char* eq_str)
 		eq_str++;
 	if (ft_isdigit(*eq_str))
 		machine->state = DIGIT;
-	else if (*eq_str == 'X')
+	else if (*eq_str == 'X' || *eq_str == 'x')
 		machine->state = UNKNOWN;
 	else if (*eq_str == '+' || *eq_str == '-')
 		machine->state = PLUS_MINUS;
@@ -28,6 +28,16 @@ char*	space(t_state_machine* machine, char* eq_str)
 		machine->state = EQUAL_SIGN;
 	else if (*eq_str == '\0')
 		machine->state = END;
+	else if (*eq_str == '*' || *eq_str == '/' || *eq_str == '%')
+		error_exit(MULT_DIV);
+	else if (*eq_str == '^')
+		error_exit(CARET);
+	else if (*eq_str == '(')
+		error_exit(PARENTHESIS);
+	else if (*eq_str == '<' || *eq_str == '>')
+		error_exit(ANGLE_BRACKET);
+	else if (ft_isalpha(*eq_str))
+		error_exit(UNKNOWN_UNKNOWN);
 	else
 		error_exit(UNKNOWN_SYNTAX);
 	return (eq_str);
@@ -55,8 +65,10 @@ char*	parse_exponent(t_term* term, char* eq_str)
 		if (ft_isint(eq_str) == FAILURE)
 			error_exit(EXP_OVERFLOW);
 		if (ft_atoi_sign(eq_str, &term->exponent) == FAILURE)
-			error_exit(UNKNOWN_SYNTAX);
+			error_exit(EXP_INVALID);
 		eq_str = skip_int(eq_str);
+		if (*eq_str == '.')
+			error_exit(EXP_INVALID);
 	}
 	else
 		term->exponent = 1;
@@ -88,16 +100,30 @@ char*	digit(t_state_machine* machine, char* eq_str)
 	eq_str = skip_spaces(eq_str);
 	if (*eq_str == '+' || *eq_str == '-' || *eq_str == '=' || *eq_str == '\0')
 		term->exponent = 0;
-	else
+	else if (*eq_str != '/' && *eq_str != '%' && *eq_str != '^'
+			&& *eq_str != '(' && *eq_str != '<' && *eq_str != '>')
 	{
 		if (*eq_str == '*')
 		{
 			eq_str++;
 			eq_str = skip_spaces(eq_str);
+			if (ft_isdigit(*eq_str))
+				error_exit(MULT_DIV);
 		}
-		if (*eq_str != 'X')
+		if (*eq_str != 'X' && *eq_str != 'x')
+		{
+			if (ft_isalpha(*eq_str))
+				error_exit(UNKNOWN_UNKNOWN);
 			error_exit(UNKNOWN_SYNTAX);
+		}
 		eq_str = parse_exponent(term, eq_str);
+		eq_str = skip_spaces(eq_str);
+		if (*eq_str != '+' && *eq_str != '-' && *eq_str != '='
+				&& *eq_str != '*' && *eq_str != '/' && *eq_str != '%'
+				&& *eq_str != '^' && *eq_str != '('
+				&& *eq_str != '<' && *eq_str != '>'
+				&& *eq_str != '\0')
+			error_exit(INVALID_TERM_BOUND);
 	}
 
 	add_to_list(term, machine);
@@ -124,13 +150,20 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 			machine->negative = FALSE;
 		}
 	}
-	else
+	else if (*eq_str != '/' && *eq_str != '%' && *eq_str != '^'
+			&& *eq_str != '(' && *eq_str != '<' && *eq_str != '>')
 	{
 		if (*eq_str != '*')
 			error_exit(UNKNOWN_SYNTAX);
 		eq_str++;
 		eq_str = skip_spaces(eq_str);
 		eq_str = parse_parameter(term, machine, eq_str);
+		if (*eq_str != '+' && *eq_str != '-' && *eq_str != '='
+				&& *eq_str != '*' && *eq_str != '/' && *eq_str != '%'
+				&& *eq_str != '^' && *eq_str != '('
+				&& *eq_str != '<' && *eq_str != '>'
+				&& *eq_str != '\0')
+			error_exit(INVALID_TERM_BOUND);
 	}
 
 	add_to_list(term, machine);
@@ -141,7 +174,12 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 char*	plus_minus(t_state_machine* machine, char* eq_str)
 {
 	if (*eq_str == '-')
-		machine->negative = TRUE;
+	{
+		if (machine->negative == TRUE)
+			machine->negative = FALSE;
+		else
+			machine->negative = TRUE;
+	}
 	eq_str++;
 	machine->state = SPACE;
 	return (eq_str);

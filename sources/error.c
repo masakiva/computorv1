@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:28 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 20:20:42 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:55:15 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,16 @@ int		error_exit(enum e_errcode errcode)
 		"Memory allocation failure",
 		"Cannot write on standard output",
 		"--- separator ---",
-		"Unknown syntax",
+		"The signs *, / and \% are not supported between equation terms "\
+			"(only + and - are allowed)",
+		"The sign ^ can only follow an X unknown",
+		"Usage of parenthesis is not supported",
+		"Usage of less-than and greater-than signs is not supported",
+		"Equation can contain only one unknown, and it must be named X or x",
 		"Exponent must be an int",
+		"The sign ^ must be followed by an int",
+		"An equation term can only be followed by +, - or =",
+		"Unknown syntax",
 	};
 
 	ft_putstr_fd("[computorv1] error: ", STDERR_FILENO);

@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 20:19:46 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:53:39 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,15 @@ enum		e_errcode
 	MALLOC_ERR,
 	WRITE_ERR,
 	_ERRNO_END_,
-	UNKNOWN_SYNTAX,
+	MULT_DIV,
+	CARET,
+	PARENTHESIS,
+	ANGLE_BRACKET,
+	UNKNOWN_UNKNOWN,
 	EXP_OVERFLOW,
+	EXP_INVALID,
+	INVALID_TERM_BOUND,
+	UNKNOWN_SYNTAX,
 };
 
 int		error_exit(enum e_errcode errcode);
