@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 09:46:57 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:19:46 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ enum		e_errcode
 	WRITE_ERR,
 	_ERRNO_END_,
 	UNKNOWN_SYNTAX,
+	EXP_OVERFLOW,
 };
 
 int		error_exit(enum e_errcode errcode);

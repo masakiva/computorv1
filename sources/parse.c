@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 11:54:22 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:19:30 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,15 @@ char*	parse_parameter(t_term* term, t_state_machine* machine, char* eq_str)
 	return (eq_str);
 }
 
+
 char*	parse_exponent(t_term* term, char* eq_str)
 {
 	eq_str++;
 	if (*eq_str == '^')
 	{
 		eq_str++;
+		if (ft_isint(eq_str) == FAILURE)
+			error_exit(EXP_OVERFLOW);
 		if (ft_atoi_sign(eq_str, &term->exponent) == FAILURE)
 			error_exit(UNKNOWN_SYNTAX);
 		eq_str = skip_int(eq_str);
