@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 21:56:40 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/02 22:04:31 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ char*	digit(t_state_machine* machine, char* eq_str)
 	return (eq_str);
 }
 
+#include <stdio.h>
 char*	unknown(t_state_machine* machine, char* eq_str)
 {
 	t_term*		term;
@@ -158,6 +159,7 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 		eq_str++;
 		eq_str = skip_spaces(eq_str);
 		eq_str = parse_parameter(term, machine, eq_str);
+		eq_str = skip_spaces(eq_str);
 		if (*eq_str != '+' && *eq_str != '-' && *eq_str != '='
 				&& *eq_str != '*' && *eq_str != '/' && *eq_str != '%'
 				&& *eq_str != '^' && *eq_str != '('
