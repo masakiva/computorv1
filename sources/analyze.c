@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/01 23:18:24 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/04 11:24:48 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,8 @@ int		get_lowest_exponent(t_equation* equation)
 
 int		analyze_equation(t_equation* equation)
 {
+	if (equation->left_terms == NULL && equation->right_terms == NULL)
+		return (FALSE);
 	reduce_eq_form(equation);
 	print_reduced_form(equation);
 	if (get_lowest_exponent(equation) < 0)
