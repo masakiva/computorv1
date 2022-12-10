@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 20:09:39 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 20:10:19 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ char*	read_stdin(void)
 
 int		main(int argc, char** argv)
 {
-	t_byte		options;
 	t_equation	equation;
 	char*		input;
+	t_byte		options;
 
 	if (argc > 1)
 	{

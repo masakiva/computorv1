@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/04 11:24:48 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 20:12:01 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,8 +140,8 @@ void	sort_terms(t_list* terms_list)
 	t_term*	cur_term;
 	t_list*	cur_link_2;
 	t_term*	cur_term_2;
-	int		swap_exp;
 	double	swap_param;
+	int		swap_exp;
 
 	cur_link = terms_list;
 	while (cur_link != NULL)
