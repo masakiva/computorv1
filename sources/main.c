@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 17:43:02 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:41:13 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int		main(int argc, char** argv)
 				error_exit(WRITE_ERR);
 			return (EXIT_SUCCESS);
 		}
+	}
 
+	if (argc == 2)
+	{
 		ft_bzero(&equation, sizeof(t_equation));
 		parse_equation(argv[1], &equation);
 		if (analyze_equation(&equation) == FALSE)

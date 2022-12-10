@@ -6,19 +6,14 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 16:18:16 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:31:32 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "libft.h"
 # include "main.h"
-
-# define ARG_OPTIONS	"h"
-# define HELP_OPTION	0x01
-# define LONG_HELP_OPTION	"help"
 
 enum	e_state
 {
@@ -42,8 +37,6 @@ typedef struct	s_state_machine
 }				t_state_machine;
 
 typedef char*	(*t_parse)(t_state_machine *, char *);
-
-t_byte	retrieve_options(int argc, char **argv, char *op_chars);
 
 void	parse_equation(char* eq_str, t_equation* equation);
 

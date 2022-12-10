@@ -6,11 +6,11 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:03 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/11 10:40:10 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:31:18 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "error.h"
 
 static t_byte	check_arg_for_options(char *arg, char *op_chars)
 {
