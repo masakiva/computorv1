@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:28 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 16:52:35 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:55:23 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		error_exit(enum e_errcode errcode)
 	const char		*err_msg[] = {
 		"Memory allocation failure",
 		"Cannot write on standard output",
+		"Cannot read file or allocate memory (get_next_line error)",
 		"--- separator ---",
 		"The signs *, / and \% are not supported between equation terms "\
 			"(only + and - are allowed)",

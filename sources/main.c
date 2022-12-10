@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 19:41:13 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 20:07:38 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <stdio.h>
+char*	read_stdin(void)
+{
+	char*	line;
+	int		ret;
+
+	ret = get_next_line(STDIN_FILENO, &line);
+	if (ret == ERROR)
+		error_exit(GNL_ERR);
+	return (line);
+}
+
 int		main(int argc, char** argv)
 {
 	t_byte		options;
 	t_equation	equation;
+	char*		input;
 
 	if (argc > 1)
 	{
@@ -34,7 +47,14 @@ int		main(int argc, char** argv)
 	if (argc == 2)
 	{
 		ft_bzero(&equation, sizeof(t_equation));
-		parse_equation(argv[1], &equation);
+		if (ft_strcmp(argv[1], "-") == 0)
+		{
+			input = read_stdin();
+			parse_equation(input, &equation);
+			free(input);
+		}
+		else
+			parse_equation(argv[1], &equation);
 		if (analyze_equation(&equation) == FALSE)
 			return (EXIT_SUCCESS);
 		solve_equation(&equation);
