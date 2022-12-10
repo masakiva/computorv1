@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 10:09:39 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:56:37 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,24 +90,24 @@ void	null_discriminant(t_equation* equation)
 void	negative_discriminant(t_equation* equation)
 {
 	double	x_real;
-	double	x1_complex;
-	double	x2_complex;
+	double	x1_imaginary;
+	double	x2_imaginary;
 
 	x_real = -1 * equation->b / (2 * equation->a);
-	x2_complex = ft_sqrt_double(-1 * equation->discriminant)
+	x2_imaginary = ft_sqrt_double(-1 * equation->discriminant)
 		/ (2 * equation->a);
-	x1_complex = x2_complex * -1;
-	printf("Discriminant is strictly negative, there are two complex "\
+	x1_imaginary = x2_imaginary * -1;
+	printf("Discriminant is strictly negative, there are two imaginary "\
 			"solutions:\n");
-	if (x2_complex < 0)
+	if (x2_imaginary < 0)
 	{
-		printf("%g - %gi\n", x_real, x2_complex * -1);
-		printf("%g + %gi\n", x_real, x1_complex);
+		printf("%g - %gi\n", x_real, x2_imaginary * -1);
+		printf("%g + %gi\n", x_real, x1_imaginary);
 	}
 	else
 	{
-		printf("%g + %gi\n", x_real, x2_complex);
-		printf("%g - %gi\n", x_real, x1_complex * -1);
+		printf("%g + %gi\n", x_real, x2_imaginary);
+		printf("%g - %gi\n", x_real, x1_imaginary * -1);
 	}
 }
 
