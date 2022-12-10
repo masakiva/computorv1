@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 16:28:09 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:42:18 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char*	space(t_state_machine* machine, char* eq_str)
 		error_exit(PARENTHESIS);
 	else if (*eq_str == '<' || *eq_str == '>')
 		error_exit(ANGLE_BRACKET);
-	else if (ft_isalpha(*eq_str))
+	else if (ft_isalpha(*eq_str) && !ft_isalpha(eq_str[1]))
 		error_exit(UNKNOWN_UNKNOWN);
 	else
 		error_exit(UNKNOWN_SYNTAX);
