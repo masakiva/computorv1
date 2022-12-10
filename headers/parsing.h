@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:05:23 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/23 10:54:30 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:18:16 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ typedef struct	s_state_machine
 	enum e_state	state;
 	t_bool			right_side;
 	t_bool			negative;
-	t_byte			pad[2];
+	t_bool			plus_minus;
+	t_byte			_pad[1];
 }				t_state_machine;
 
 typedef char*	(*t_parse)(t_state_machine *, char *);

@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:28 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/09 21:51:38 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:26:57 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		error_exit(enum e_errcode errcode)
 		"The sign ^ must be followed by an int",
 		"Only one equal sign is allowed",
 		"An equation term can only be followed by +, - or =",
+		"+ or - signs must be followed by a number or an X unknown",
 		"Unknown syntax",
 	};
 

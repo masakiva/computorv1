@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/09 21:49:49 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:28:09 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char*	digit(t_state_machine* machine, char* eq_str)
 {
 	t_term*		term;
 
+	machine->plus_minus = FALSE;
+
 	term = malloc(sizeof(t_term));
 	if (term == NULL)
 		error_exit(MALLOC_ERR);
@@ -135,6 +137,8 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 {
 	t_term*		term;
 
+	machine->plus_minus = FALSE;
+
 	term = malloc(sizeof(t_term));
 	if (term == NULL)
 		error_exit(MALLOC_ERR);
@@ -174,6 +178,7 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 
 char*	plus_minus(t_state_machine* machine, char* eq_str)
 {
+	machine->plus_minus = TRUE;
 	if (*eq_str == '-')
 	{
 		if (machine->negative == TRUE)
@@ -190,6 +195,8 @@ char*	equal_sign(t_state_machine* machine, char* eq_str)
 {
 	if (machine->right_side == TRUE)
 		error_exit(TWO_EQUALS);
+	if (machine->plus_minus == TRUE)
+		error_exit(TRAILING_PLUS_MINUS);
 	machine->right_side = TRUE;
 	eq_str++;
 	machine->state = SPACE;
@@ -213,4 +220,6 @@ void	parse_equation(char* eq_str, t_equation* equation)
 	{
 		eq_str = process[machine.state](&machine, eq_str);
 	}
+	if (machine.plus_minus == TRUE)
+		error_exit(TRAILING_PLUS_MINUS);
 }
