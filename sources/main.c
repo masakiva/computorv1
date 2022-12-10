@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 20:07:38 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 20:09:39 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <stdio.h>
 char*	read_stdin(void)
 {
 	char*	line;
