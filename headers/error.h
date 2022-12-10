@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 16:24:55 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:53:06 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ enum		e_errcode
 	UNKNOWN_UNKNOWN,
 	EXP_OVERFLOW,
 	EXP_INVALID,
+	TRAILING_ASTERISK,
 	TWO_EQUALS,
 	INVALID_TERM_BOUND,
 	TRAILING_PLUS_MINUS,

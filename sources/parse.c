@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/10 16:42:18 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:56:21 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,14 @@ char*	digit(t_state_machine* machine, char* eq_str)
 		{
 			eq_str++;
 			eq_str = skip_spaces(eq_str);
-			if (ft_isdigit(*eq_str))
+			if (ft_isdigit(*eq_str) || *eq_str == '-' || *eq_str == '+')
 				error_exit(MULT_DIV);
 		}
 		if (*eq_str != 'X' && *eq_str != 'x')
 		{
 			if (ft_isalpha(*eq_str))
 				error_exit(UNKNOWN_UNKNOWN);
-			error_exit(UNKNOWN_SYNTAX);
+			error_exit(TRAILING_ASTERISK);
 		}
 		eq_str = parse_exponent(term, eq_str);
 		eq_str = skip_spaces(eq_str);
@@ -161,6 +161,8 @@ char*	unknown(t_state_machine* machine, char* eq_str)
 			error_exit(UNKNOWN_SYNTAX);
 		eq_str++;
 		eq_str = skip_spaces(eq_str);
+		if (!ft_isdigit(*eq_str) && *eq_str != '-' && *eq_str != '+')
+			error_exit(TRAILING_ASTERISK);
 		eq_str = parse_parameter(term, machine, eq_str);
 		eq_str = skip_spaces(eq_str);
 		if (*eq_str != '+' && *eq_str != '-' && *eq_str != '='
