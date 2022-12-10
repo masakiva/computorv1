@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:40:28 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 21:55:15 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:51:38 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		error_exit(enum e_errcode errcode)
 		"Equation can contain only one unknown, and it must be named X or x",
 		"Exponent must be an int",
 		"The sign ^ must be followed by an int",
+		"Only one equal sign is allowed",
 		"An equation term can only be followed by +, - or =",
 		"Unknown syntax",
 	};

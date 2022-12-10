@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:04:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/02 22:04:31 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:49:49 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ char*	digit(t_state_machine* machine, char* eq_str)
 	return (eq_str);
 }
 
-#include <stdio.h>
 char*	unknown(t_state_machine* machine, char* eq_str)
 {
 	t_term*		term;
@@ -189,6 +188,8 @@ char*	plus_minus(t_state_machine* machine, char* eq_str)
 
 char*	equal_sign(t_state_machine* machine, char* eq_str)
 {
+	if (machine->right_side == TRUE)
+		error_exit(TWO_EQUALS);
 	machine->right_side = TRUE;
 	eq_str++;
 	machine->state = SPACE;
