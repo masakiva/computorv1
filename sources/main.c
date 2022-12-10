@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:29:39 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 18:19:18 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:25:58 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int		main(int argc, char** argv)
 		solve_equation(&equation);
 	}
 	else
+	{
 		if (ft_putstr_fd(HELP_MSG, STDOUT_FILENO) != SUCCESS)
 			error_exit(WRITE_ERR);
+		return (EXIT_FAILURE);
+	}
 
 	return (EXIT_SUCCESS);
 }

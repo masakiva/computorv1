@@ -6,7 +6,7 @@
 #    By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 10:16:21 by mvidal-a          #+#    #+#              #
-#    Updated: 2022/11/22 15:02:45 by mvidal-a         ###   ########.fr        #
+#    Updated: 2022/12/10 17:27:41 by mvidal-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ CC = clang
 #-----------------------------------------------#
 ################### PATHS #######################
 #-----------------------------------------------#
-LIBFT_PATH	+= ./libft/
 HDRS_PATH	+= ./headers/
 SRCS_PATH	+= ./sources/
 OBJS_PATH	+= ./objects/
@@ -61,7 +60,6 @@ CFLAGS		+= -Wall
 CFLAGS		+= -Werror
 CFLAGS		+= -Wextra
 
-CPPFLAGS	+= -I $(LIBFT_PATH)
 CPPFLAGS	+= -I $(HDRS_PATH)					\
 
 # Multiple header directories
@@ -70,10 +68,10 @@ CPPFLAGS	+= -I $(HDRS_PATH)					\
 #-----------------------------------------------#
 ################# LIBRARIES #####################
 #-----------------------------------------------#
+LIBFT_PATH	+= ./libft/
 LIBFT_NAME	+= libft.a
-
+CPPFLAGS	+= -I $(LIBFT_PATH)
 LDFLAGS		+= -L $(LIBFT_PATH)
-
 LDLIBS		+= -lft
 
 #-----------------------------------------------#
