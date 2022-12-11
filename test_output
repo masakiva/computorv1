@@ -1,12 +1,12 @@
 5 + 4X - 9.3 X^2 = X^0
-Reduced form: 4 + 4X - 9.3X^2 = 0
+Reduced form: 4 + 4 X - 9.3 X^2 = 0
 Polynomial degree: 2
 Discriminant is strictly positive, the two solutions are:
 0.905239
 -0.475131
 
 2X^2 - 3+X  =0
-Reduced form: -3 + X + 2X^2 = 0
+Reduced form: -3 + X + 2 X^2 = 0
 Polynomial degree: 2
 Discriminant is strictly positive, the two solutions are:
 -1.5
@@ -20,33 +20,33 @@ Discriminant is strictly negative, there are two complex solutions:
 -0.5 - 0.866025i
 
 9 * X^2 - 30 * X^1 + 25 * X^0 = 0 * X^0
-Reduced form: 25 - 30X + 9X^2 = 0
+Reduced form: 25 - 30 X + 9 X^2 = 0
 Polynomial degree: 2
 Discriminant is null, there is one solution:
 1.66667
 
 3 * X^2 - 4 * X^1 - 2 * X^0 = 0 * X^0
-Reduced form: -2 - 4X + 3X^2 = 0
+Reduced form: -2 - 4 X + 3 X^2 = 0
 Polynomial degree: 2
 Discriminant is strictly positive, the two solutions are:
 -0.387426
 1.72076
 
 -3 * X^2 + 1 * X^1 - 2 * X^0 = 0 * X^0
-Reduced form: -2 + X - 3X^2 = 0
+Reduced form: -2 + X - 3 X^2 = 0
 Polynomial degree: 2
 Discriminant is strictly negative, there are two complex solutions:
 0.166667 - 0.799305i
 0.166667 + 0.799305i
 
 25 * X^2 + 70 * X^1 + 49 * X^0 = 0 * X^0
-Reduced form: 49 + 70X + 25X^2 = 0
+Reduced form: 49 + 70 X + 25 X^2 = 0
 Polynomial degree: 2
 Discriminant is null, there is one solution:
 -1.4
 
 5 * X^0 + 4 * X^1 = 4 * X^0
-Reduced form: 1 + 4X = 0
+Reduced form: 1 + 4 X = 0
 Polynomial degree: 1
 The solution is:
 -0.25
@@ -77,7 +77,7 @@ Discriminant is strictly positive, the two solutions are:
 1.61803
 
 X^2 * 4 + X * 1 + X^0 * -1 = X
-Reduced form: -1 + 4X^2 = 0
+Reduced form: -1 + 4 X^2 = 0
 Polynomial degree: 2
 Discriminant is strictly positive, the two solutions are:
 -0.5
