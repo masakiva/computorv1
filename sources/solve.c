@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/09 21:56:37 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:53:33 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	negative_discriminant(t_equation* equation)
 	x2_imaginary = ft_sqrt_double(-1 * equation->discriminant)
 		/ (2 * equation->a);
 	x1_imaginary = x2_imaginary * -1;
-	printf("Discriminant is strictly negative, there are two imaginary "\
+	printf("Discriminant is strictly negative, there are two complex "\
 			"solutions:\n");
 	if (x2_imaginary < 0)
 	{
