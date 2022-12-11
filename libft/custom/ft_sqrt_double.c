@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 18:20:22 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/11/22 18:20:47 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:06:25 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ double	ft_sqrt_double(double nb)
 	sqrt = (double)ft_sqrt_long((long)nb);
 	increment = 0.1;
 	i = 0;
-	while (i < 6)
+	while (i < 15)
 	{
 		while (sqrt * sqrt <= nb)
 			sqrt += increment;

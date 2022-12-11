@@ -63,3 +63,38 @@ echo
 eq="X^2 * 4 + X * 1 + X^0 * -1 = X"
 echo "$eq"
 ./computorv1 "$eq"
+echo
+
+eq="X^3 * 4 = X"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="X^3 * 4 + 2 = X^3 * 4 + X^2"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="0.1x^2 = 1"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="0.01x^2 = 1"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="0.001x^2 = 1"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="0.00000000000000001x^2 = 1"
+echo "$eq"
+./computorv1 "$eq"
+echo
+
+eq="0.0000000000000000000000001 * x^2 = 1"
+echo "$eq"
+./computorv1 "$eq"
