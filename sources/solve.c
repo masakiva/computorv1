@@ -6,7 +6,7 @@
 /*   By: mvidal-a <mvidal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:54:17 by mvidal-a          #+#    #+#             */
-/*   Updated: 2022/12/11 17:53:33 by mvidal-a         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:31:22 by mvidal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,12 @@ void	positive_discriminant(t_equation* equation)
 {
 	double	x1;
 	double	x2;
+	double	discriminant_sqrt;
 
-	x1 = (-1 * equation->b - ft_sqrt_double(equation->discriminant))
+	discriminant_sqrt = ft_sqrt_double(equation->discriminant);
+	x1 = (-1 * equation->b - discriminant_sqrt)
 		/ (2 * equation->a);
-	x2 = (-1 * equation->b + ft_sqrt_double(equation->discriminant))
+	x2 = (-1 * equation->b + discriminant_sqrt)
 		/ (2 * equation->a);
 	printf("Discriminant is strictly positive, the two solutions are:\n"\
 			"%g\n%g\n", x1, x2);
